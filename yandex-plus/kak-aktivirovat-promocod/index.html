@@ -95,16 +95,21 @@
             border-left: 4px solid #EF4444;
         }
         
-        .screenshot-placeholder {
-            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
-            border: 2px dashed #9CA3AF;
+        .screenshot-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            color: #6B7280;
-            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.02);
         }
         
         @media print {
@@ -234,12 +239,12 @@
                             <div class="code-block">
                                 https://plus.yandex.ru/gift
                             </div>
-                            <<div class="screenshot-container mt-4">
-    <img src="/images/yandex-plus-aktivaciya-promocoda-august-2025.jpg" 
-         alt="Страница активации промокодов Яндекс Плюс plus.yandex.ru/gift - актуальный интерфейс август 2025" 
-         class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
-    <p class="text-sm text-gray-600 mt-2 text-center italic">Страница активации промокодов (обновлено 26 августа 2025)</p>
-</div>
+                            <div class="screenshot-container mt-4">
+                                <img src="https://deals-hub.ru/image/yandex-plus-aktivaciya-promocoda-august-2025.jpg" 
+                                     alt="Страница активации промокодов Яндекс Плюс plus.yandex.ru/gift - актуальный интерфейс август 2025" 
+                                     class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
+                                <p class="text-sm text-gray-600 mt-2 text-center italic">Страница активации промокодов (обновлено 26 августа 2025)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -272,11 +277,11 @@
                                 </p>
                             </div>
                             <div class="screenshot-container mt-4">
-    <img src="/images/pole-vvoda-promocoda-yandex-plus-august-2025.jpg" 
-         alt="Поле ввода промокода Яндекс Плюс - как правильно вводить промокод в августе 2025" 
-         class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
-    <p class="text-sm text-gray-600 mt-2 text-center italic">Поле ввода промокода (интерфейс август 2025)</p>
-</div>
+                                <img src="https://deals-hub.ru/image/pole-vvoda-promocoda-yandex-plus-august-2025.jpg" 
+                                     alt="Поле ввода промокода Яндекс Плюс - как правильно вводить промокод в августе 2025" 
+                                     class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
+                                <p class="text-sm text-gray-600 mt-2 text-center italic">Поле ввода промокода (интерфейс август 2025)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -313,11 +318,11 @@
                         </ol>
                     </div>
                     <div class="screenshot-container">
-    <img src="/images/alternativnyj-put-aktivacii-yandex-plus-2025.jpg" 
-         alt="Альтернативный способ активации промокода Яндекс Плюс через настройки подписки" 
-         class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
-    <p class="text-sm text-gray-600 mt-2 text-center italic">Альтернативный путь активации через настройки</p>
-</div>
+                        <img src="https://deals-hub.ru/image/alternativnyj-put-aktivacii-yandex-plus-2025.jpg" 
+                             alt="Альтернативный способ активации промокода Яндекс Плюс через настройки подписки" 
+                             class="screenshot w-full h-auto border border-gray-300 rounded-lg shadow-md">
+                        <p class="text-sm text-gray-600 mt-2 text-center italic">Альтернативный путь активации через настройки</p>
+                    </div>
                 </div>
             </div>
         </section>
