@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>AI Toolbox — блог про нейросети</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Обзоры нейросетей, сравнения, промты, кейсы и легальные способы оплаты подписок.">
+  <link rel="canonical" href="https://deals-hub.ru/">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:title" content="AI Toolbox — блог про нейросети">
+  <meta property="og:description" content="Обзоры нейросетей, сравнения и промты.">
+  <meta property="og:type" content="website">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=103884617', 'ym');
+    ym(103884617, 'init', { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/103884617" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1>AI Toolbox</h1>
+        <p>Нейросети без воды: что выбрать, как оплатить, как использовать.</p>
+      </div>
+      <nav class="nav" aria-label="Навигация">
+        <a href="/">Главная</a>
+        <a href="/hubs/">Разделы</a>
+        <a href="/tags/">Теги</a>
+        <a href="/about/">О проекте</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title"><span class="kicker">Старт</span> Ваш проводник в мире нейросетей</h2>
+      <p>Подборки и обзоры ChatGPT, Claude, Gemini, Midjourney, SDXL, Pika, Runway и др. Сравниваем качество, показываем реальные ограничения и объясняем, как легально платить из РФ.</p>
+
+      <form id="search" class="searchbar" role="search" aria-label="Поиск по статьям">
+        <input id="query" name="q" type="search" placeholder="Найдите статью, инструмент или тег…" autocomplete="off">
+        <button type="submit">Искать</button>
+      </form>
+
+      <div id="active-filters" class="badges" style="display:none">
+        <span class="badge">Фильтр: <strong id="active-tag"></strong></span>
+        <a class="badge" id="clear-tag" href="#">Сбросить</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="hubs-title">
+      <h2 id="hubs-title">Разделы</h2>
+      <div class="grid">
+        {{HUB_CARDS}}
+      </div>
+    </section>
+
+    <section aria-labelledby="latest-title">
+      <h2 id="latest-title">Свежие статьи</h2>
+      <div id="grid" class="grid">
+        {{ARTICLE_CARDS}}
+      </div>
+    </section>
+
+    <section aria-labelledby="tags-title">
+      <h2 id="tags-title">Теги</h2>
+      <div class="badges">
+        {{TAG_BADGES}}
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© {{YEAR}} AI Toolbox. <a href="/sitemap.xml">Карта сайта</a> · <a href="/about/">О проекте</a></p>
+    </footer>
+  </div>
+
+  <script src="/assets/js/home.js"></script>
+</body>
+</html>
