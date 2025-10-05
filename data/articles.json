@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "title": "GPT-5 Thinking: что умеет и как использовать",
+      "slug": "gpt5-thinking-guide",
+      "excerpt": "Новые режимы рассуждения, скрытый контекст и лучшие сценарии для маркетинга, кода и аналитики.",
+      "tags": ["chatgpt", "llm", "контент"],
+      "date": "2025-10-01",
+      "reading": "8 мин",
+      "cover": "/assets/images/placeholder.svg",
+      "hub": "chatbots"
+    }
+  ],
+  "hubs": [
+    { "slug": "chatbots", "title": "Чат-модели", "desc": "ChatGPT, Claude, Gemini и др." },
+    { "slug": "images",   "title": "Картинки",   "desc": "Midjourney, SDXL, Flux и др." },
+    { "slug": "video",    "title": "Видео",      "desc": "Pika, Runway, Luma" },
+    { "slug": "audio",    "title": "Аудио",      "desc": "Suno, Udio, ElevenLabs" },
+    { "slug": "prompts",  "title": "Промты",     "desc": "Методики и шаблоны" },
+    { "slug": "billing",  "title": "Оплата",     "desc": "Как и где платить" }
+  ]
+}
