@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "ru" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.subtitle }}{{ else }}{{ .Summary | default .Site.Params.subtitle }}{{ end }}">
+    
+    <!-- Keywords from post tags -->
+    {{ if .Params.tags }}
+    <meta name="keywords" content="{{ delimit .Params.tags ", " }}">
+    {{ end }}
+    
+    <!-- CSS -->
+    {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+    
+
+</head>
+<body>
+    <!-- Header -->
+    {{ partial "header.html" . }}
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+    
+    <!-- JavaScript -->
+    {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+    
+    <!-- View Counter JavaScript -->
+    {{ $viewCounter := resources.Get "js/view-counter.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $viewCounter.RelPermalink }}" integrity="{{ $viewCounter.Data.Integrity }}"></script>
+    
+    <!-- Last Post Tracker JavaScript -->
+    {{ $lastPostTracker := resources.Get "js/last-post-tracker.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $lastPostTracker.RelPermalink }}" integrity="{{ $lastPostTracker.Data.Integrity }}"></script>
+    
+    <!-- Яндекс.Метрика -->
+    {{ partial "yandex-metrika.html" . }}
+</body>
+</html>

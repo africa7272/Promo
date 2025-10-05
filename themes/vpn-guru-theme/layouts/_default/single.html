@@ -1,0 +1,96 @@
+{{ define "main" }}
+<div class="post-layout">
+    <!-- Main Content -->
+    <div class="post-main">
+        <article class="post-single">
+            <!-- Breadcrumbs -->
+            {{ partial "breadcrumbs.html" . }}
+            
+            <!-- Post Header -->
+            <header class="post-header">
+                <h1 class="post-title">{{ .Title }}</h1>
+                
+                            <div class="post-meta">
+                <div class="post-meta-primary">
+                    <time class="post-date">{{ .Date.Format "02.01.2006" }}</time>
+                    {{ $authorParam := .Param "author" }}
+                    {{ if $authorParam }}
+                    <span class="post-author">
+                        <span class="author-icon">👤</span>
+                        {{ if or (eq (printf "%T" $authorParam) "[]string") (eq (printf "%T" $authorParam) "[]interface {}") }}
+                            {{ delimit $authorParam ", " }}
+                        {{ else }}
+                            {{ $authorParam }}
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                    <span class="reading-time">
+                        <span class="reading-time-icon">⏱️</span>
+                        {{ math.Round (div (countwords .Content) 200.0) }} мин
+                    </span>
+                    <span class="view-count">
+                        <span class="view-count-icon">👁️</span>
+                        <span class="view-count-number" data-post-id="{{ .File.UniqueID }}">0</span> просмотров
+                    </span>
+                </div>
+
+            </div>
+            </header>
+            
+            <!-- Post Summary -->
+            {{ if .Description }}
+            <div class="post-summary-box">
+                <div class="post-summary-content">
+                    <h3 class="post-summary-title">Краткое содержание</h3>
+                    <div class="post-summary-text">{{ .Description | markdownify }}</div>
+                </div>
+            </div>
+            {{ end }}
+            
+            <!-- Post Content -->
+            <div class="post-content">
+                {{ .Content }}
+            </div>
+            
+            <!-- Page Divider -->
+            <hr class="page-divider">
+            
+            <!-- Post Tags -->
+            {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            <!-- Page Divider -->
+            <hr class="page-divider">
+            
+            <!-- Share Buttons -->
+            {{ partial "share-buttons.html" . }}
+            
+            <!-- Post Navigation -->
+            {{ partial "post-navigation.html" . }}
+        </article>
+    </div>
+    
+    <!-- Sidebar with Table of Contents -->
+    <aside class="post-sidebar">
+        <!-- Ad Banner -->
+        {{ partial "ad-banner.html" . }}
+        
+        <div class="toc-container">
+            <div class="toc-header">
+                <h3 class="toc-title">Оглавление</h3>
+                <button class="toc-toggle" aria-label="Свернуть/развернуть оглавление">
+                    <span class="toc-toggle-icon">▼</span>
+                </button>
+            </div>
+            <div class="toc-content">
+                {{ .TableOfContents }}
+            </div>
+        </div>
+    </aside>
+</div>
+{{ end }}

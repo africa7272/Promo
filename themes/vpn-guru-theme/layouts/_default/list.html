@@ -1,0 +1,98 @@
+{{ define "main" }}
+<div class="home-container">
+    <main class="main-content">
+        <div class="container">
+            <header class="page-header">
+                <h1 class="site-title">{{ .Site.Title }}</h1>
+                <p class="site-subtitle">{{ .Site.Params.subtitle }}</p>
+            </header>
+            
+            <div class="posts-grid">
+                {{ range .Paginator.Pages }}
+                <article class="post-card" data-href="{{ .RelPermalink }}" tabindex="0" role="link" aria-label="Открыть: {{ .Title }}">
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <time class="post-date">{{ .Date.Format "02.01.2006" }}</time>
+                            <span class="reading-time-small">
+                                <span class="reading-time-icon">⏱️</span>
+                                {{ math.Round (div (countwords .Content) 200.0) }} мин
+                            </span>
+                        </div>
+                        
+                        <h2 class="post-title">{{ .Title }}</h2>
+                        
+                        <div class="post-excerpt">
+                            {{ if .Summary }}
+                                {{ .Summary | plainify | truncate 200 }}
+                            {{ else }}
+                                {{ .Content | plainify | truncate 200 }}
+                            {{ end }}
+                        </div>
+                        
+                        <div class="post-footer">
+                            <a href="{{ .RelPermalink }}" class="read-more">Читать далее</a>
+                        </div>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+            
+            <!-- Pagination -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <nav class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" class="pagination-prev">← Предыдущая</a>
+                {{ end }}
+                
+                <span class="pagination-info">
+                    Страница {{ .Paginator.PageNumber }} из {{ .Paginator.TotalPages }}
+                </span>
+                
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" class="pagination-next">Следующая →</a>
+                {{ end }}
+            </nav>
+            {{ end }}
+        </div>
+    </main>
+    
+    <aside class="sidebar">
+        <div class="sidebar-widget categories">
+            <h3 class="widget-title">Категории</h3>
+            <div class="categories-list">
+                {{ $categories := slice }}
+                {{ range .Site.RegularPages }}
+                    {{ if .Params.categories }}
+                        {{ $categories = $categories | append .Params.categories }}
+                    {{ end }}
+                {{ end }}
+                {{ $categories = uniq $categories | sort }}
+                {{ range $categories }}
+                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-link">
+                    <span class="category-name">{{ . }}</span>
+                    <span class="category-count">
+                        {{ len (where $.Site.RegularPages "Params.categories" "intersect" (slice .)) }}
+                    </span>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+        
+        <div class="sidebar-widget tags-cloud">
+            <h3 class="widget-title">Популярные теги</h3>
+            <div class="tags-container">
+                {{ $tags := slice }}
+                {{ range .Site.RegularPages }}
+                    {{ if .Params.tags }}
+                        {{ $tags = $tags | append .Params.tags }}
+                    {{ end }}
+                {{ end }}
+                {{ $tags = uniq $tags | sort }}
+                {{ range $tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag-link">{{ . }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </aside>
+</div>
+{{ end }}

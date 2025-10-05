@@ -1,0 +1,31 @@
+{{ if .Site.Params.ads.enabled }}
+<div class="promo-banner">
+    <!-- Конфетти частицы -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    
+    <div class="promo-banner-content">
+        <div class="promo-banner-icon">
+            <img src="{{ .Site.Params.ads.iconUrl }}" alt="VPN сервис" loading="lazy">
+        </div>
+        <div class="promo-banner-text">
+            <h4 class="promo-banner-title">{{ .Site.Params.ads.title }}</h4>
+            <p class="promo-banner-description">{{ .Site.Params.ads.text | markdownify }}</p>
+        </div>
+        <div class="promo-banner-action">
+            <a href="{{ .Site.Params.ads.targetUrl }}" class="promo-banner-button" target="_blank" rel="noopener noreferrer">
+                {{ .Site.Params.ads.buttonText }}
+                <span class="promo-banner-button-icon">🚀</span>
+            </a>
+        </div>
+    </div>
+    <div class="promo-banner-badge">Промо</div>
+</div>
+{{ end }}

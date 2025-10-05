@@ -1,0 +1,50 @@
+baseURL = "https://<YOUR_GITHUB_USERNAME>.github.io"
+languageCode = "ru"
+title = "GPT Гид — блог о нейросетях"
+theme = "vpn-guru-theme"
+[permalinks]
+permalinks.posts = "/posts/:contentbasename/"
+permalinks.tags = "/tags/:slug/"
+permalinks.categories = "/categories/:slug/"
+
+[slugify]
+slugify.paths = "ascii"
+slugify.case = "lower"
+
+[taxonomies]
+taxonomies.tag = "tags"
+taxonomies.category = "categories"
+
+[markup]
+[markup.goldmark]
+
+
+[pagination]
+
+[sitemap]
+sitemap.changefreq = "hourly"
+sitemap.filename = "sitemap.xml"
+sitemap.disable = true
+
+[params]
+params.subtitle = "Инструкции, оплатa, промпты, лучшие практики ChatGPT на русском"
+params.ShowShareButtons = true
+params.ShowReadingTime = true
+params.ShowWordCount = false
+params.ShowToc = true
+params.TocOpen = false
+params.ShowBreadCrumbs = false
+params.ShowPostNavLinks = true
+params.author = ["AI Guru"]
+params.yandexMetrika = "104250063"
+[params.sitemap]
+params.sitemap.disableTaxonomyPages = true
+
+[params.ads]
+params.ads.enabled = true
+params.ads.title = "Официальная оплата ChatGPT"
+params.ads.text = "Надёжный способ оплатить подписку. Подробности — в нашем Telegram."
+params.ads.iconUrl = "https://imagestoring.fra1.cdn.digitaloceanspaces.com/6a0d8b5d-hero-gpt.png"
+params.ads.targetUrl = "https://gglead.org/ggsel3/?flow=3606&ulp=https%3A%2F%2Fggsel.net%2Fcatalog%2Fproduct%2F3706068"
+params.ads.buttonText = "Оплатить ChatGPT"
+

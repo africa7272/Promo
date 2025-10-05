@@ -1,0 +1,21 @@
+{{ if not .IsHome }}
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+    <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+            <a href="{{ .Site.BaseURL }}" class="breadcrumb-link">Главная</a>
+        </li>
+        
+        {{ if .Section }}
+        <li class="breadcrumb-item">
+            <a href="{{ .Site.BaseURL }}{{ .Section }}/" class="breadcrumb-link">
+                {{ if eq .Section "posts" }}Посты{{ else }}{{ .Section | title }}{{ end }}
+            </a>
+        </li>
+        {{ end }}
+        
+        <li class="breadcrumb-item active" aria-current="page">
+            {{ .Title }}
+        </li>
+    </ol>
+</nav>
+{{ end }}

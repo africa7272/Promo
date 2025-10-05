@@ -1,0 +1,37 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-stats">
+                <div class="stats-item">
+                    <span class="stats-icon">📊</span>
+                    <span class="stats-label">Всего постов:</span>
+                    <span class="stats-value">{{ len (where .Site.RegularPages "Type" "posts") }}</span>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-icon">🏷️</span>
+                    <span class="stats-label">Тегов:</span>
+                    <span class="stats-value">{{ len .Site.Taxonomies.tags }}</span>
+                </div>
+                <div class="stats-item">
+                    <span class="stats-icon">📁</span>
+                    <span class="stats-label">Категорий:</span>
+                    <span class="stats-value">{{ len .Site.Taxonomies.categories }}</span>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-actions">
+                <button id="clear-last-post" class="footer-action-btn" title="Очистить историю посещений">
+                    <span class="btn-icon">🗑️</span>
+                    <span class="btn-text">Очистить историю</span>
+                </button>
+            </div>
+            <p class="footer-text">
+                © {{ now.Year }} {{ .Site.Title }}. {{ .Site.Params.subtitle }}
+            </p>
+        </div>
+    </div>
+
+  <div class="footer-cta">
+    <a href="https://t.me/real_plan_B" rel="nofollow noopener" target="_blank">Наш Telegram</a>
+  </div>
+</footer>

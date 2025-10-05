@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="tag-page">
+    <header class="tag-header">
+        <h1 class="tag-title">Тег: {{ .Title }}</h1>
+        <p class="tag-description">Статьи по тегу "{{ .Title }}"</p>
+    </header>
+
+    <div class="tag-posts">
+        {{ range .Pages }}
+        <article class="tag-post">
+            <h2 class="post-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <div class="post-meta">
+                <time class="post-date">{{ .Date.Format "02.01.2006" }}</time>
+                <span class="post-reading-time">⏱️ {{ math.Round (div (countwords .Content) 200.0) }} мин</span>
+            </div>
+            {{ if .Description }}
+            <p class="post-summary">{{ .Description }}</p>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

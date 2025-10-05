@@ -1,0 +1,29 @@
+{{ if or .PrevInSection .NextInSection }}
+<nav class="post-navigation" aria-label="Навигация по постам">
+    <div class="nav-links">
+        {{ if .PrevInSection }}
+        <div class="nav-previous">
+            <a href="{{ .PrevInSection.RelPermalink }}" class="nav-link prev-link">
+                <span class="nav-arrow">←</span>
+                <div class="nav-content">
+                    <span class="nav-label">Предыдущий пост</span>
+                    <span class="nav-title">{{ .PrevInSection.Title }}</span>
+                </div>
+            </a>
+        </div>
+        {{ end }}
+        
+        {{ if .NextInSection }}
+        <div class="nav-next">
+            <a href="{{ .NextInSection.RelPermalink }}" class="nav-link next-link">
+                <div class="nav-content">
+                    <span class="nav-label">Следующий пост</span>
+                    <span class="nav-title">{{ .NextInSection.Title }}</span>
+                </div>
+                <span class="nav-arrow">→</span>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</nav>
+{{ end }}
